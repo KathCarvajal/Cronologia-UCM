@@ -1,0 +1,732 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CRONOLOGÍA DEL UCM</title>
+<link rel="icon" type="image/png" href="https://i.redd.it/s74hqlfyejg31.jpg">
+<style>
+/* ----------------------------- ESTILOS GENERALES ----------------------------- */
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  background-color: #0b0b0b;
+  color: white;
+  overflow-x: hidden;
+}
+
+header {
+  background-color: #8B0000;
+  color: white;
+  padding: 20px 0;
+  text-align: center;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+nav a {
+  color: white;
+  margin: 0 20px;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.1em;
+  transition: color 0.3s;
+}
+
+nav a:hover {
+  color: #ffcc00;
+}
+
+section {
+  padding: 60px 20px;
+}
+
+/* ----------------------------- INTRODUCCIÓN ----------------------------- */
+.intro {
+  text-align: center;
+  font-size: 1.3em;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.intro h1 {
+  font-size: 3em;
+  color: #ff0000;
+  text-shadow: 0 0 20px #ff0000;
+  margin-bottom: 20px;
+}
+
+/* ----------------------------- ANIMACIÓN GUANTE IRON MAN ----------------------------- */
+.glove-wrap {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.glove {
+  width: 200px;
+  height: 250px;
+  background: url('https://i.pinimg.com/1200x/d1/d8/96/d1d896818535c04ef15ee133de5184e6.jpg') center/contain no-repeat;
+  position: relative;
+  filter: drop-shadow(0 0 15px #ff4500);
+}
+
+/* Gemas tipo rombo */
+.gem {
+  width: 35px;
+  height: 35px;
+  position: absolute;
+  transform: rotate(45deg);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all 0.8s ease;
+  box-shadow: 0 0 15px rgba(255,255,255,0.4);
+}
+
+.g-yellow { background: linear-gradient(180deg, #ffe57f, #fbc02d); top: -100px; left: 20%; }
+.g-blue   { background: linear-gradient(180deg, #90caf9, #1976d2); top: -120px; left: 60%; }
+.g-purple { background: linear-gradient(180deg, #ce93d8, #8e24aa); top: -140px; left: 80%; }
+.g-red    { background: linear-gradient(180deg, #ef5350, #b71c1c); top: -90px; left: 40%; }
+.g-green  { background: linear-gradient(180deg, #81c784, #2e7d32); top: -110px; left: 70%; }
+
+.fly-to-glove {
+  transform: scale(0.1) rotate(720deg);
+  opacity: 0;
+}
+
+/* ----------------------------- CRONOLOGÍA ----------------------------- */
+.cronologia {
+  background-color: #111;
+  padding: 40px;
+  text-align: center;
+}
+
+.cronologia h2 {
+  color: #ff4500;
+  font-size: 2.5em;
+  text-shadow: 0 0 20px #ff0000;
+}
+
+.movies-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 25px;
+  margin-top: 30px;
+}
+
+.movie {
+  background: #1a1a1a;
+  border-radius: 10px;
+  overflow: hidden;
+  transition: transform 0.3s, box-shadow 0.3s;
+  cursor: pointer;
+}
+
+.movie:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0000;
+}
+
+.movie img {
+  width: 100%;
+  height: 330px;
+  object-fit: cover;
+}
+
+.movie h3 {
+  margin: 10px 0;
+  color: #ffcc00;
+  font-size: 1.2em;
+}
+
+/* ----------------------------- LÍNEA DEL TIEMPO ----------------------------- */
+.timeline {
+  position: relative;
+  max-width: 1000px;
+  margin: 50px auto;
+}
+
+.timeline::after {
+  content: '';
+  position: absolute;
+  width: 6px;
+  background-color: #ff0000;
+  top: 0;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  animation: pulseLine 3s infinite alternate;
+}
+
+@keyframes pulseLine {
+  0% { box-shadow: 0 0 10px #ff0000; }
+  100% { box-shadow: 0 0 30px #ffcc00; }
+}
+
+.container {
+  padding: 20px 40px;
+  position: relative;
+  width: 50%;
+}
+
+.container img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.left {
+  left: 0;
+}
+
+.right {
+  left: 50%;
+}
+
+.content {
+  background-color: #1a1a1a;
+  padding: 20px;
+  border-radius: 8px;
+  animation: fadeIn 1.5s ease;
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;}
+  to {opacity: 1;}
+}
+
+.content h3 {
+  color: #ffcc00;
+}
+
+/* ----------------------------- PIE DE PÁGINA ----------------------------- */
+footer {
+  background-color: #8B0000;
+  color: white;
+  text-align: center;
+  padding: 20px;
+  font-size: 0.9em;
+}
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <a href="#inicio">INICIO</a>
+    <a href="#cronologia">CRONOLOGÍA</a>
+    <a href="#linea">LÍNEA DEL TIEMPO</a>
+  </nav>
+</header>
+
+<!-- ----------------------------- INICIO ----------------------------- -->
+<section id="inicio" class="intro">
+  <h1>¿Qué es el Universo Cinematográfico de Marvel?</h1>
+  <p>
+    El Universo Cinematográfico de Marvel (UCM) es una franquicia compuesta por películas y series interconectadas que relatan las historias de los superhéroes de Marvel Comics. Desde 2008 con "Iron Man", ha construido un vasto universo narrativo que combina acción, ciencia ficción, aventura y heroísmo, dividido en fases que reflejan las diferentes etapas de su evolución cinematográfica.
+  </p>
+
+  <!-- ANIMACIÓN GUANTE Y GEMAS -->
+  <div class="glove-wrap">
+    <div class="glove" id="glove"></div>
+    <div class="gem g-yellow"></div>
+    <div class="gem g-blue"></div>
+    <div class="gem g-purple"></div>
+    <div class="gem g-red"></div>
+    <div class="gem g-green"></div>
+  </div>
+</section>
+
+<!-- ----------------------------- CRONOLOGÍA ----------------------------- -->
+<section id="cronologia" class="cronologia">
+  <h2>CRONOLOGÍA DEL UCM</h2>
+  <div class="movies-grid">
+
+    <!-- // INSERTA AQUÍ LINK DE LA IMAGEN -->
+    <div class="movie">
+      <img src="https://pics.filmaffinity.com/Iron_Man-773611005-large.jpg" alt="Iron Man">
+      <h3>Iron Man (2008)</h3>
+    </div>
+
+    <!-- // INSERTA AQUÍ LINK DE LA IMAGEN -->
+    <div class="movie">
+      <img src="https://m.media-amazon.com/images/M/MV5BYmJkODY3ZDItNDk4Ny00OGFmLWE3OGQtYmEwMDRmMGQ3NmI2XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="The Incredible Hulk">
+      <h3>The Incredible Hulk (2008)</h3>
+    </div>
+
+    <!-- // INSERTA AQUÍ LINK DE LA IMAGEN -->
+    <div class="movie">
+      <img src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjy4WhhsA75w45kbVoNF_Wf6j-_0Ofr1xNXbQUeXsAP5bkl5T8ChFQPyyXpt1LGF1qwQThFBSU5HkAO-oaGxvElFgrIYf3kiSjUwB9nH45-3m22KImMRvEICQk-xtZo355NL0Br3MiHJFw/s800/iron_man_two_ver7.jpg" alt="Iron Man 2">
+      <h3>Iron Man 2 (2010)</h3>
+    </div>
+
+    <!-- // INSERTA AQUÍ LINK DE LA IMAGEN -->
+    <div class="movie">
+      <img src="https://i.redd.it/2sxg4in2n5x41.jpg" alt="Thor">
+      <h3>Thor (2011)</h3>
+    </div>
+
+    <!-- // INSERTA AQUÍ LINK DE LA IMAGEN -->
+    <div class="movie">
+      <img src="https://images.justwatch.com/poster/8646724/s718/captain-america-the-first-avenger.jpg" alt="Captain America">
+      <h3>Captain America: The First Avenger (2011)</h3>
+    </div>
+
+    <!-- // INSERTA AQUÍ LINK DE LA IMAGEN -->
+    <div class="movie">
+      <img src="https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p8815512_p_v8_ax.jpg" alt="The Avengers">
+      <h3>The Avengers (2012)</h3>
+    </div>
+
+<!-- Películas después de The Avengers (2012) -->
+
+<!-- Phase 2 -->
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BMTczN2NkZTctNzhmNS00ZmI1LWI1ZjAtNGQxNjI4MTNkM2JmXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Iron Man 3 (2013)">
+  <h3>Iron Man 3 (2013)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BMjdjNDQ3ZTEtY2Y1Mi00NmE1LWI3NWEtY2VkOTY1ODFkYTY4XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Thor: The Dark World (2013)">
+  <h3>Thor: The Dark World (2013)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://posterspy.com/wp-content/uploads/2021/01/Winter_Soldier_Poster.jpg" alt="Captain America: The Winter Soldier (2014)">
+  <h3>Captain America: The Winter Soldier (2014)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://upload.wikimedia.org/wikipedia/en/3/33/Guardians_of_the_Galaxy_%28film%29_poster.jpg" alt="Guardians of the Galaxy (2014)">
+  <h3>Guardians of the Galaxy (2014)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/pictures/15/02/25/10/37/363909.jpg" alt="Avengers: Age of Ultron (2015)">
+  <h3>Avengers: Age of Ultron (2015)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img2.acsta.net/pictures/15/05/11/10/11/517143.jpg" alt="Ant-Man (2015)">
+  <h3>Ant-Man (2015)</h3>
+</div>
+
+<!-- Phase 3 -->
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img2.acsta.net/c_310_420/pictures/16/03/14/17/21/324829.jpg" alt="Captain America: Civil War (2016)">
+  <h3>Captain America: Civil War (2016)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/16/10/26/08/45/139966.jpg" alt="Doctor Strange (2016)">
+  <h3>Doctor Strange (2016)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/17/03/09/14/11/154943.jpg" alt="Guardians of the Galaxy Vol. 2 (2017)">
+  <h3>Guardians of the Galaxy Vol. 2 (2017)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/17/06/19/14/01/130456.jpg" alt="Spider-Man: Homecoming (2017)">
+  <h3>Spider-Man: Homecoming (2017)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/17/08/25/09/36/103601.jpg" alt="Thor: Ragnarok (2017)">
+  <h3>Thor: Ragnarok (2017)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BMTg1MTY2MjYzNV5BMl5BanBnXkFtZTgwMTc4NTMwNDI@._V1_.jpg" alt="Black Panther (2018)">
+  <h3>Black Panther (2018)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/pictures/18/03/16/15/33/3988420.jpg" alt="Avengers: Infinity War (2018)">
+  <h3>Avengers: Infinity War (2018)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/18/07/03/13/52/3276833.jpg" alt="Ant-Man and the Wasp (2018)">
+  <h3>Ant-Man and the Wasp (2018)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/19/02/05/12/55/5474956.jpg" alt="Captain Marvel (2019)">
+  <h3>Captain Marvel (2019)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/19/03/26/17/22/0896830.jpg" alt="Avengers: Endgame (2019)">
+  <h3>Avengers: Endgame (2019)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/19/06/04/09/41/5108791.jpg" alt="Spider-Man: Far From Home (2019)">
+  <h3>Spider-Man: Far From Home (2019)</h3>
+</div>
+
+<!-- Phase 4 -->
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://upload.wikimedia.org/wikipedia/en/e/e9/Black_Widow_%282021_film%29_poster.jpg" alt="Black Widow (2021)">
+  <h3>Black Widow (2021)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BZmY5MDcyNzAtYzg3MC00MGNlLTg3OGItNmRjYThkZGVlNzAyXkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="Shang-Chi and the Legend of the Ten Rings (2021)">
+  <h3>Shang-Chi and the Legend of the Ten Rings (2021)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/21/08/19/10/48/2250523.jpg" alt="Eternals (2021)">
+  <h3>Eternals (2021)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/21/12/01/12/07/0243323.jpg" alt="Spider-Man: No Way Home (2021)">
+  <h3>Spider-Man: No Way Home (2021)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/22/04/07/11/43/1839314.jpg" alt="Doctor Strange in the Multiverse of Madness (2022)">
+  <h3>Doctor Strange in the Multiverse of Madness (2022)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/22/05/24/10/36/0968710.jpg" alt="Thor: Love and Thunder (2022)">
+  <h3>Thor: Love and Thunder (2022)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/22/10/03/15/27/0389048.jpg" alt="Black Panther: Wakanda Forever (2022)">
+  <h3>Black Panther: Wakanda Forever (2022)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img2.acsta.net/c_310_420/pictures/23/01/16/09/45/4231352.jpg" alt="Ant-Man and the Wasp: Quantumania (2023)">
+  <h3>Ant-Man and the Wasp: Quantumania (2023)</h3>
+</div>
+
+<!-- Phase 5 -->
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://es.web.img3.acsta.net/c_310_420/pictures/23/02/13/13/48/4422250.jpg" alt="Guardians of the Galaxy Vol. 3 (2023)">
+  <h3>Guardians of the Galaxy Vol. 3 (2023)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BYzczOWM4MzItMWMyOS00ZDczLWIxMzctNzBmYTgzOTI1MzI3XkEyXkFqcGc@._V1_FMjpg_UX1000_.jpg" alt="The Marvels (2023)">
+  <h3>The Marvels (2023)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR2JwKw0KFxqF7N-OiGWduXHPbdUwTf_Mz78w&s" alt="Blade (2025)">
+  <h3>Blade (2025)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BNDRjY2E0ZmEtN2QwNi00NTEwLWI3MWItODNkMGYwYWFjNGE0XkEyXkFqcGc@._V1_.jpg" alt="Captain America: Brave New World (2025)">
+  <h3>Captain America: Brave New World (2025)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://pics.filmaffinity.com/Thunderbolts-554849209-large.jpg" alt="Thunderbolts* (2025)">
+  <h3>Thunderbolts* (2025)</h3>
+</div>
+
+<div class="movie">
+  <!-- INSERTA AQUÍ LINK DE LA IMAGEN -->
+  <img src="https://m.media-amazon.com/images/M/MV5BOGM5MzA3MDAtYmEwMi00ZDNiLTg4MDgtMTZjOTc0ZGMyNTIwXkEyXkFqcGc@._V1_.jpg" alt="The Fantastic Four: First Steps (2025)">
+  <h3>The Fantastic Four: First Steps (2025)</h3>
+</div>
+
+
+      </div>
+</section>
+
+<!-- ----------------------------- LÍNEA DEL TIEMPO ----------------------------- -->
+<section id="linea" class="timeline">
+  <div class="container left">
+    <div class="content">
+      <h3>Fase 1</h3>
+      <p>De 2008 a 2012: Introducción de los héroes principales y formación de Los Vengadores.</p>
+      <!-- // INSERTA AQUÍ LINK DE LA IMAGEN DE FASE 1 -->
+      <img src="https://hips.hearstapps.com/hmg-prod/images/los-vengadores-poster-667059f4d01d9.jpg?crop=1.00xw:0.640xh;0,0&resize=640:*">
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <h3>Fase 2</h3>
+      <p>De 2013 a 2015: Expansión del universo, nuevas amenazas y más personajes se suman.</p>
+      <!-- // INSERTA AQUÍ LINK DE LA IMAGEN DE FASE 2 -->
+      <img src="https://img.europapress.es/fotoweb/fotonoticia_20140612144955_1200.jpg">
+    </div>
+  </div>
+
+  <div class="container left">
+    <div class="content">
+      <h3>Fase 3</h3>
+      <p>De 2016 a 2019: Conflictos internos, batallas universales y el enfrentamiento con Thanos.</p>
+      <!-- // INSERTA AQUÍ LINK DE LA IMAGEN DE FASE 3 -->
+      <img src="https://lamanodelextranjero.com/wp-content/uploads/2019/05/los-vengadores-contra-thanos-en-infinity-war.jpg">
+    </div>
+  </div>
+
+  <div class="container right">
+    <div class="content">
+      <h3>Fase 4 y 5</h3>
+      <p>De 2021 a 2025: Nuevos héroes, multiverso, herencias y expansión cósmica del UCM.</p>
+      <!-- // INSERTA AQUÍ LINK DE LA IMAGEN DE FASE 4/5 -->
+      <img src="https://hips.hearstapps.com/hmg-prod/images/thunderbolts-67ea984aa0ff3.jpg?crop=0.5625xw:1xh;center,top&resize=980:*">
+    </div>
+  </div>
+</section>
+
+<!-- ----------------------------- PIE DE PÁGINA ----------------------------- -->
+<footer>
+  <p>Gracias por visitar nuestra página web del Universo Cinematográfico de Marvel ✨</p>
+</footer>
+
+<!-- ----------------------------- SCRIPT ANIMACIÓN SNAP ----------------------------- -->
+<script>
+const gems = document.querySelectorAll('.gem');
+const glove = document.getElementById('glove');
+
+gems.forEach(g => {
+  g.addEventListener('click', e => {
+    const gloveRect = glove.getBoundingClientRect();
+    const gemRect = g.getBoundingClientRect();
+    const dx = gloveRect.left + gloveRect.width/2 - (gemRect.left + gemRect.width/2);
+    const dy = gloveRect.top + gloveRect.height/2 - (gemRect.top + gemRect.height/2);
+
+    g.style.transition = 'transform 1s ease, opacity 1s';
+    g.style.transform = `translate(${dx}px, ${dy}px) scale(0.2) rotate(720deg)`;
+    g.style.opacity = '0';
+    setTimeout(() => {
+      g.classList.add('fly-to-glove');
+      glove.animate([
+        { filter: 'drop-shadow(0 0 30px #ff0000)' },
+        { filter: 'drop-shadow(0 0 100px #ffff00)' },
+        { filter: 'drop-shadow(0 0 30px #ff0000)' }
+      ], {
+        duration: 1000,
+        easing: 'ease-in-out'
+      });
+    }, 900);
+  });
+});
+</script>
+<!-- ----------------------------- MODAL DE INFORMACIÓN DE PELÍCULAS ----------------------------- -->
+<div id="movieModal" class="modal">
+  <div class="modal-content">
+    <span class="close">&times;</span>
+    <h2 id="movieTitle"></h2>
+    <img id="movieImage" src="" alt="Póster de la película">
+    <p id="movieSummary"></p>
+  </div>
+</div>
+
+<style>
+/* ----------------------------- MODAL (VENTANA EMERGENTE) ----------------------------- */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  padding-top: 80px;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background: rgba(0,0,0,0.9);
+  animation: fadeInModal 0.6s ease forwards;
+}
+
+/* Evita que la página principal se desplace cuando el modal está abierto */
+body.modal-open {
+  overflow: hidden;
+}
+
+@keyframes fadeInModal {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.modal-content {
+  background: radial-gradient(circle at top, #1a1a1a, #000);
+  margin: auto;
+  padding: 30px;
+  border: 3px solid #ff0000;
+  width: 70%;
+  max-height: 80vh; /* 🔹 Permite scroll interno */
+  overflow-y: auto; /* 🔹 Scroll dentro del modal */
+  border-radius: 20px;
+  color: #fff;
+  text-align: center;
+  box-shadow: 0 0 30px #ff0000;
+  animation: zoomIn 0.6s ease forwards;
+}
+
+@keyframes zoomIn {
+  from { transform: scale(0.5); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.modal-content img {
+  width: 250px;
+  border-radius: 10px;
+  margin: 20px 0;
+  box-shadow: 0 0 20px #ff0000;
+}
+
+.modal-content h2 {
+  color: #ffcc00;
+  text-shadow: 0 0 10px #ff4500;
+  font-size: 2em;
+  margin-bottom: 10px;
+}
+
+.modal-content p {
+  font-size: 1.2em;
+  line-height: 1.6;
+  color: #f1f1f1;
+  text-align: justify;
+  padding: 0 20px;
+}
+
+.close {
+  color: #ff4500;
+  float: right;
+  font-size: 2em;
+  font-weight: bold;
+  cursor: pointer;
+  transition: transform 0.3s ease, color 0.3s;
+}
+
+.close:hover {
+  color: #ffcc00;
+  transform: scale(1.3);
+}
+</style>
+
+<script>
+/* ----------------------------- FUNCIONALIDAD MODAL ----------------------------- */
+const movies = document.querySelectorAll('.movie');
+const modal = document.getElementById('movieModal');
+const closeBtn = document.querySelector('.close');
+const movieTitle = document.getElementById('movieTitle');
+const movieImage = document.getElementById('movieImage');
+const movieSummary = document.getElementById('movieSummary');
+
+/* ----------------------------- LISTA DE RESÚMENES ----------------------------- */
+const summaries = {
+  "Iron Man (2008)": "Tony Stark, un genio multimillonario, es secuestrado y crea una armadura avanzada para escapar, dando origen a Iron Man y al comienzo del UCM.",
+  "The Incredible Hulk (2008)": "Bruce Banner busca una cura para su transformación en el Hulk mientras huye del ejército y de su propio poder incontrolable.",
+  "Iron Man 2 (2010)": "Tony Stark enfrenta las consecuencias de revelar su identidad y debe luchar contra nuevos enemigos tecnológicos.",
+  "Thor (2011)": "El dios del trueno es desterrado a la Tierra, donde aprende humildad y se convierte en un verdadero héroe.",
+  "Captain America: The First Avenger (2011)": "Durante la Segunda Guerra Mundial, Steve Rogers se convierte en el supersoldado Capitán América para enfrentar a Hydra.",
+  "The Avengers (2012)": "Los héroes más poderosos de la Tierra se unen por primera vez para detener la invasión de Loki y los Chitauri.",
+  "Iron Man 3 (2013)": "Tony Stark enfrenta las secuelas de la batalla de Nueva York mientras lucha contra el Mandarín y descubre el verdadero poder del ingenio humano.",
+  "Thor: The Dark World (2013)": "Thor se une a Loki para salvar los Nueve Reinos de un antiguo enemigo: los elfos oscuros.",
+  "Captain America: The Winter Soldier (2014)": "Steve Rogers enfrenta una conspiración dentro de S.H.I.E.L.D. y a un enemigo inesperado del pasado: el Soldado del Invierno.",
+  "Guardians of the Galaxy (2014)": "Un grupo de inadaptados galácticos se une para proteger un misterioso orbe del temible Ronan el Acusador.",
+  "Avengers: Age of Ultron (2015)": "Los Vengadores deben detener a Ultron, una inteligencia artificial creada por Tony Stark que amenaza con destruir la humanidad.",
+  "Ant-Man (2015)": "Scott Lang se convierte en el Ant-Man y debe usar su habilidad para encogerse para salvar el mundo de una tecnología peligrosa.",
+  "Captain America: Civil War (2016)": "El equipo de los Vengadores se divide por diferencias ideológicas, enfrentando a Iron Man y Capitán América.",
+  "Doctor Strange (2016)": "Stephen Strange, un brillante pero arrogante cirujano, descubre la magia y las dimensiones místicas.",
+  "Guardians of the Galaxy Vol. 2 (2017)": "Los Guardianes descubren los orígenes de Peter Quill mientras enfrentan nuevos desafíos familiares y emocionales.",
+  "Spider-Man: Homecoming (2017)": "Peter Parker intenta equilibrar su vida como estudiante y como Spider-Man mientras enfrenta a El Buitre.",
+  "Thor: Ragnarok (2017)": "Thor se enfrenta a su hermana Hela y debe salvar Asgard en una aventura llena de humor y acción.",
+  "Black Panther (2018)": "T’Challa regresa a Wakanda para reclamar el trono y proteger su nación de amenazas internas y externas.",
+  "Avengers: Infinity War (2018)": "Thanos inicia su búsqueda de las Gemas del Infinito, enfrentando a todos los héroes del universo en una guerra épica.",
+  "Ant-Man and The Wasp (2018)": "Scott Lang y Hope van Dyne se embarcan en una misión cuántica para rescatar a la madre de Hope.",
+  "Captain Marvel (2019)": "Carol Danvers se convierte en una de las heroínas más poderosas del universo mientras descubre su verdadero pasado.",
+  "Avengers: Endgame (2019)": "Los Vengadores restantes idean un plan para deshacer el chasquido de Thanos y restaurar el equilibrio del universo.",
+  "Spider-Man: Far From Home (2019)": "Peter intenta disfrutar de sus vacaciones en Europa, pero Mysterio tiene otros planes.",
+  "Black Widow (2021)": "Natasha Romanoff enfrenta su pasado como espía y su familia perdida mientras huye del gobierno.",
+  "Shang-Chi and the Legend of the Ten Rings (2021)": "Shang-Chi se enfrenta a su padre y a su legado como portador de los Diez Anillos.",
+  "Eternals (2021)": "Una raza inmortal emerge para proteger a la humanidad de los Desviantes y revelar secretos milenarios.",
+  "Spider-Man: No Way Home (2021)": "Peter Parker enfrenta las consecuencias de su identidad revelada y el caos del multiverso.",
+  "Doctor Strange in the Multiverse of Madness (2022)": "Stephen Strange se adentra en el multiverso y enfrenta realidades alternativas junto a Wanda Maximoff.",
+  "Thor: Love and Thunder (2022)": "Thor busca la paz interior mientras enfrenta a Gorr, el Carnicero de Dioses, con la ayuda de Mighty Thor.",
+  "Black Panther: Wakanda Forever (2022)": "Tras la muerte de T’Challa, Wakanda debe protegerse y encontrar un nuevo héroe digno del legado.",
+  "Ant-Man and the Wasp: Quantumania (2023)": "Scott Lang y su familia exploran el Reino Cuántico y enfrentan al poderoso Kang el Conquistador.",
+  "Guardians of the Galaxy Vol. 3 (2023)": "Los Guardianes emprenden su misión más personal: salvar la vida de Rocket y cerrar su historia como equipo.",
+  "Captain America: Brave New World (2025)": "Sam Wilson asume completamente el manto del Capitán América enfrentando nuevas conspiraciones globales.",
+  "The Fantastic Four: First Steps (2025)": "La familia más icónica de Marvel hace su debut en el UCM explorando el cosmos y enfrentando nuevos desafíos."
+};
+
+/* ----------------------------- EVENTOS DE APERTURA Y CIERRE ----------------------------- */
+movies.forEach(movie => {
+  movie.addEventListener('click', () => {
+    const title = movie.querySelector('h3').textContent;
+    const imgSrc = movie.querySelector('img').src;
+    movieTitle.textContent = title;
+    movieImage.src = imgSrc;
+    movieSummary.textContent = summaries[title] || "Resumen próximamente disponible...";
+    modal.style.display = "block";
+    document.body.classList.add('modal-open'); // Bloquea el fondo
+  });
+});
+
+/* Cerrar modal */
+closeBtn.onclick = () => {
+  modal.style.display = "none";
+  document.body.classList.remove('modal-open'); // Desbloquea el fondo
+};
+
+window.onclick = event => { 
+  if (event.target == modal) {
+    modal.style.display = "none";
+    document.body.classList.remove('modal-open'); // Desbloquea el fondo
+  }
+};
+</script>
+
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
